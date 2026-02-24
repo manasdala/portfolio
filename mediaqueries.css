@@ -1,0 +1,158 @@
+/* =============================================
+   MEDIA QUERIES — RESPONSIVE
+============================================= */
+
+/* ---- 1400px ---- */
+@media screen and (max-width: 1400px) {
+  #profile {
+    gap: 3rem;
+  }
+
+  section {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+/* ---- 1200px: switch to hamburger ---- */
+@media screen and (max-width: 1200px) {
+  #desktop-nav {
+    display: none;
+  }
+
+  #hamburger-nav {
+    display: flex;
+  }
+
+  section {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  #profile {
+    flex-direction: column;
+    text-align: center;
+    gap: 2.5rem;
+    padding-top: calc(var(--nav-h) + 3rem);
+  }
+
+  .section__text {
+    text-align: center;
+  }
+
+  .section__text__p1,
+  .title {
+    text-align: center;
+  }
+
+  .btn-container,
+  #socials-container {
+    justify-content: center;
+  }
+
+  .section__pic-container {
+    width: 260px;
+    height: 260px;
+  }
+
+  /* About */
+  .section-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .about-pic {
+    width: 260px;
+    height: 300px;
+  }
+
+  .about-containers {
+    flex-direction: column;
+  }
+
+  .arrow {
+    display: none;
+  }
+}
+
+/* ---- 900px ---- */
+@media screen and (max-width: 900px) {
+  .skills-grid-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .skill-category-card {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* ---- 600px ---- */
+@media screen and (max-width: 600px) {
+  section {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    padding-top: calc(var(--nav-h) + 2rem);
+    padding-bottom: 3rem;
+  }
+
+  .title {
+    font-size: 2.4rem;
+  }
+
+  .logo {
+    font-size: 1.3rem;
+  }
+
+  .section__text__p2 {
+    font-size: 1rem;
+  }
+
+  .btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .about-pic {
+    width: 100%;
+    height: 240px;
+  }
+
+  .contact-info-upper-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-info-container {
+    width: 100%;
+    justify-content: center;
+  }
+
+  article {
+    width: 100%;
+  }
+
+  #contact {
+    min-height: fit-content;
+    padding-bottom: 4rem;
+  }
+
+  footer {
+    padding: 2rem 1rem;
+  }
+
+  footer .nav-links {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+  }
+}

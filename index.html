@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manas Dala — Portfolio</title>
+  <meta name="description"
+    content="Portfolio of Manas Dala — Data Science undergraduate skilled in Python, Java, SQL, Power BI and more." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="mediaqueries.css" />
+</head>
+
+<body>
+
+  <!-- ============ DESKTOP NAV ============ -->
+  <nav id="desktop-nav">
+    <div class="logo">Manas Dala</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ============ HAMBURGER NAV ============ -->
+  <nav id="hamburger-nav">
+    <div class="logo">Manas Dala</div>
+    <div class="hamburger-menu">
+      <div class="hamburger-icon" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="menu-links">
+        <li><a href="#about" onclick="toggleMenu()">About</a></li>
+        <li><a href="#experience" onclick="toggleMenu()">Skills</a></li>
+        <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+        <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ HERO / PROFILE ============ -->
+  <section id="profile">
+    <div class="profile-pic-outer reveal">
+      <div class="section__pic-container">
+        <img src="./assets/manas profile pic 2.jpg" alt="Manas Dala profile picture" />
+      </div>
+    </div>
+    <div class="section__text reveal">
+      <span class="section__text__p1">👋 Hello, I'm</span>
+      <h1 class="title">Manas Dala</h1>
+      <p class="section__text__p2">
+        <span class="typed-role">Data Science Undergraduate</span> &bull; Developer &bull; Innovator
+      </p>
+      <div class="btn-container">
+        <button class="btn btn-color-1" onclick="window.open('./assets/Dala Manas_Resume New .pdf')">
+          ↓ Resume
+        </button>
+        <button class="btn btn-color-2" onclick="location.href='#contact'">
+          Contact Me
+        </button>
+      </div>
+      <div id="socials-container">
+        <div class="social-link" onclick="location.href='https://www.linkedin.com/in/dala-manas-8176b1270/'"
+          title="LinkedIn">
+          <img src="./assets/linkedin.png" alt="LinkedIn" class="icon" />
+        </div>
+        <div class="social-link" onclick="location.href='https://github.com/manasdala'" title="GitHub">
+          <img src="./assets/github.png" alt="GitHub" class="icon" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about">
+    <span class="section__text__p1 section-label-center reveal">Get To Know More</span>
+    <h1 class="title title-about reveal">About Me</h1>
+
+    <div class="section-container reveal">
+      <!-- Left: photo -->
+      <div class="about-pic-wrap">
+        <img src="./assets/manas profile pic 1.jpg" alt="Manas Dala" class="about-pic" />
+      </div>
+
+      <!-- Right: cards + bio -->
+      <div class="about-details-container">
+        <div class="about-containers">
+          <div class="details-container">
+            <img src="./assets/experience.png" alt="Certifications" class="icon" />
+            <h3>Certifications</h3>
+            <p>SQL &bull; Java &bull; Python<br />Data Visualization<br />Artificial Intelligence &bull; C</p>
+          </div>
+          <div class="details-container">
+            <img src="./assets/education.png" alt="Education" class="icon" />
+            <h3>Education</h3>
+            <p>B.Tech in Computer Science &amp; Engineering<br /><strong class="highlight-violet">(Data
+                Science)</strong></p>
+          </div>
+        </div>
+        <div class="text-container">
+          <p>
+            I'm <strong class="highlight-dark">Dala Manas</strong>, a passionate Data Science undergraduate who
+            loves building data-driven solutions and real-world tech applications.
+            I enjoy developing projects that blend <strong>data analysis</strong>, <strong>automation</strong>, and
+            <strong>web development</strong> to solve meaningful problems.
+            Skilled in <em>Python, C, Java, MySQL, Power BI,</em> and <em>Tableau</em>, I'm always eager to learn and
+            contribute to innovative projects.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <img src="./assets/arrow.png" alt="Arrow" class="icon arrow" onclick="location.href='#experience'" />
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section id="experience">
+    <span class="section__text__p1 section-label-center reveal">Explore My</span>
+    <h1 class="title section-title-center reveal">Skills</h1>
+
+    <div class="experience-details-container reveal">
+      <div class="skills-grid-wrapper">
+
+        <!-- Card 1: Programming -->
+        <div class="skill-category-card">
+          <h2 class="experience-sub-title">Programming</h2>
+          <div class="article-container">
+            <article>
+              <img src="./assets/checkmark.png" alt="✓" class="icon" />
+              <div>
+                <h3>Java</h3>
+                <p>Intermediate</p>
+              </div>
+            </article>
+            <article>
+              <img src="./assets/checkmark.png" alt="✓" class="icon" />
+              <div>
+                <h3>Python</h3>
+                <p>Intermediate</p>
+              </div>
+            </article>
+            <article>
+              <img src="./assets/checkmark.png" alt="✓" class="icon" />
+              <div>
+                <h3>SQL</h3>
+                <p>Intermediate</p>
+              </div>
+            </article>
+            <article>
+              <img src="./assets/checkmark.png" alt="✓" class="icon" />
+              <div>
+                <h3>C</h3>
+                <p>Intermediate</p>
+              </div>
+            </article>
+            <article>
+              <img src="./assets/checkmark.png" alt="✓" class="icon" />
+              <div>
+                <h3>HTML</h3>
+                <p>Intermediate</p>
+              </div>
+            </article>
+            <article>
+              <img src="./assets/checkmark.png" alt="✓" class="icon" />
+              <div>
+                <h3>CSS</h3>
+                <p>Intermediate</p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Card 2: Data & Analytics -->
+        <div class="skill-category-card">
+          <h2 class="experience-sub-title">Data &amp; Analytics</h2>
+          <div class="article-container">
+            <article>
+              <img src="./assets/checkmark.png" alt="✓" class="icon" />
+              <div>
+                <h3>Power BI</h3>
+                <p>Intermediate</p>
+              </div>
+            </article>
+            <article>
+              <img src="./assets/checkmark.png" alt="✓" class="icon" />
+              <div>
+                <h3>Streamlit</h3>
+                <p>Basic</p>
+              </div>
+            </article>
+            <article>
+              <img src="./assets/checkmark.png" alt="✓" class="icon" />
+              <div>
+                <h3>Jupyter</h3>
+                <p>Intermediate</p>
+              </div>
+            </article>
+            <article>
+              <img src="./assets/checkmark.png" alt="✓" class="icon" />
+              <div>
+                <h3>VS Code</h3>
+                <p>Intermediate</p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <img src="./assets/arrow.png" alt="Arrow" class="icon arrow" onclick="location.href='#projects'" />
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section id="projects">
+    <span class="section__text__p1 reveal" style="display:block;text-align:center;">Browse My Recent</span>
+    <h1 class="title reveal" style="text-align:center;">Projects</h1>
+
+    <div class="projects-grid reveal">
+
+      <!-- Project 1 -->
+      <div class="project-card">
+        <div class="project-img-wrap">
+          <img src="./assets/netfilxpropic.jpg" alt="Netflix Clone" class="project-img" />
+          <div class="project-img-overlay"></div>
+        </div>
+        <div class="project-card-body">
+          <h2 class="project-title">Netflix Clone</h2>
+          <div>
+            <span class="project-tag tag-coral">HTML</span>
+            <span class="project-tag tag-violet">CSS</span>
+          </div>
+          <p class="project-desc">A pixel-perfect reproduction of the Netflix landing page featuring responsive layouts
+            and modern UI elements.</p>
+          <button class="project-btn" onclick="location.href='https://github.com/manasdala/Netflix-home-page.git'">
+            ↗ GitHub
+          </button>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card">
+        <div class="project-img-wrap">
+          <img src="./assets/spotifypic1.jpg" alt="Spotify Clone" class="project-img" />
+          <div class="project-img-overlay"></div>
+        </div>
+        <div class="project-card-body">
+          <h2 class="project-title">Spotify Clone</h2>
+          <div>
+            <span class="project-tag tag-teal">HTML</span>
+            <span class="project-tag tag-violet">CSS</span>
+          </div>
+          <p class="project-desc">A frontend clone of Spotify's interface with styled music controls and responsive
+            design.</p>
+          <button class="project-btn" onclick="location.href='https://github.com/manasdala/spotify.git'">
+            ↗ GitHub
+          </button>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-card">
+        <div class="project-img-wrap">
+          <img src="./assets/sensingpro.jpg" alt="Sensing Sobriety" class="project-img" />
+          <div class="project-img-overlay"></div>
+        </div>
+        <div class="project-card-body">
+          <h2 class="project-title">Sensing Sobriety</h2>
+          <div>
+            <span class="project-tag tag-gold">Python</span>
+            <span class="project-tag tag-violet">ML</span>
+          </div>
+          <p class="project-desc">An intelligent sensing system leveraging machine learning to detect sobriety levels
+            using real-world data inputs.</p>
+          <button class="project-btn" onclick="location.href='https://github.com/manasdala'">
+            ↗ GitHub
+          </button>
+        </div>
+      </div>
+
+      <!-- Project 4 — Multimodal Emo AI Agent -->
+      <div class="project-card">
+        <div class="project-img-wrap emo-ai-banner">
+          <div class="emo-ai-art">
+            <span class="emo-icon">😊</span>
+            <span class="emo-icon">🎙️</span>
+            <span class="emo-icon">💬</span>
+          </div>
+          <div class="project-img-overlay"></div>
+        </div>
+        <div class="project-card-body">
+          <h2 class="project-title">Multimodal Emo AI Agent</h2>
+          <div>
+            <span class="project-tag tag-violet">Python</span>
+            <span class="project-tag tag-teal">Deep Learning</span>
+            <span class="project-tag tag-coral">Flask</span>
+          </div>
+          <p class="project-desc">A multimodal emotion recognition system that measures feelings using facial
+            recognition, voice recognition, and text sentiment analysis — integrated via a modern web interface.</p>
+          <button class="project-btn"
+            onclick="location.href='https://github.com/manasdala/Multimodal-Emo-AI-Agent.git'">
+            ↗ GitHub
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <img src="./assets/arrow.png" alt="Arrow" class="icon arrow" onclick="location.href='#contact'" />
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact">
+    <span class="section__text__p1 reveal" style="display:block;text-align:center;">Get in Touch</span>
+    <h1 class="title reveal" style="text-align:center;">Contact Me</h1>
+    <p class="contact-subtitle reveal">Have a project in mind or just want to say hi? I'd love to hear from you!</p>
+
+    <div class="contact-info-upper-container reveal">
+      <div class="contact-info-container">
+        <img src="./assets/email.png" alt="Email" class="icon contact-icon email-icon" />
+        <p><a href="mailto:manas.kits1@gmail.com">manas.kits1@gmail.com</a></p>
+      </div>
+      <div class="contact-info-container">
+        <img src="./assets/linkedin.png" alt="LinkedIn" class="icon contact-icon" />
+        <p><a href="https://www.linkedin.com/in/dala-manas-8176b1270/" target="_blank"
+            rel="noopener noreferrer">LinkedIn Profile</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <nav>
+      <div class="nav-links-container">
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <p>Copyright &#169; 2025 Manas Dala. All Rights Reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

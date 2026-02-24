@@ -1,0 +1,1101 @@
+/* =============================================
+   MANAS DALA PORTFOLIO — ADVANCED UI
+   Color Palette:
+   Primary Coral  : #FF6B6B
+   Accent Violet  : #845EC2
+   Teal           : #00C9A7
+   Light BG       : #FFFFFF
+   Surface        : #F7F7FF
+   Text Dark      : #1A1A2E
+   Text Muted     : #6B6B8A
+============================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+/* ---------- RESET & BASE ---------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --coral: #FF6B6B;
+  --violet: #845EC2;
+  --teal: #00C9A7;
+  --gold: #FFD93D;
+  --bg: #FFFFFF;
+  --surface: #F7F7FF;
+  --dark: #1A1A2E;
+  --muted: #6B6B8A;
+  --border: rgba(132, 94, 194, 0.15);
+  --shadow: 0 8px 40px rgba(132, 94, 194, 0.12);
+  --radius: 1.25rem;
+  --nav-h: 80px;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  background: var(--bg);
+  color: var(--dark);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Decorative blobs */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.07;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body::before {
+  width: 600px;
+  height: 600px;
+  background: var(--violet);
+  top: -200px;
+  left: -200px;
+}
+
+body::after {
+  width: 500px;
+  height: 500px;
+  background: var(--coral);
+  bottom: -150px;
+  right: -150px;
+}
+
+p {
+  color: var(--muted);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+/* =============================================
+   SCROLL-REVEAL UTILITY
+============================================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =============================================
+   NAVBAR
+============================================= */
+#desktop-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: var(--nav-h);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4rem;
+  background: rgba(255, 255, 255, 0.82);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 2px 20px rgba(132, 94, 194, 0.07);
+}
+
+.logo {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--coral), var(--violet));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  cursor: default;
+  letter-spacing: -0.5px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--dark);
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--coral), var(--violet));
+  border-radius: 2px;
+  transition: width 0.35s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links a:hover {
+  color: var(--violet);
+}
+
+/* =============================================
+   HAMBURGER NAV
+============================================= */
+#hamburger-nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: var(--nav-h);
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border);
+}
+
+.hamburger-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 22px;
+  width: 28px;
+  cursor: pointer;
+}
+
+.hamburger-icon span {
+  width: 100%;
+  height: 2px;
+  background: var(--dark);
+  border-radius: 2px;
+  transition: all 0.35s ease;
+}
+
+.hamburger-icon.open span:first-child {
+  transform: rotate(45deg) translate(8px, 5px);
+}
+
+.hamburger-icon.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-icon.open span:last-child {
+  transform: rotate(-45deg) translate(8px, -5px);
+}
+
+.menu-links {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  background: white;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  min-width: 180px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+}
+
+.menu-links.open {
+  max-height: 320px;
+  padding: 0.5rem 0;
+}
+
+.menu-links li {
+  list-style: none;
+}
+
+.menu-links a {
+  display: block;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--dark);
+  transition: background 0.2s, color 0.2s;
+}
+
+.menu-links a:hover {
+  background: var(--surface);
+  color: var(--violet);
+}
+
+/* =============================================
+   SECTIONS GENERAL
+============================================= */
+section {
+  padding: calc(var(--nav-h) + 4rem) 6rem 4rem;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+/* =============================================
+   PROFILE / HERO SECTION
+============================================= */
+/* Outer wrapper that holds the ring+pic so flexbox centres the whole group */
+.profile-pic-outer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+#profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+  min-height: 100vh;
+  padding-top: var(--nav-h);
+  background: linear-gradient(160deg, #fff 60%, #F0ECFF 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Floating accent circles */
+#profile::before {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 107, 107, 0.12) 0%, transparent 70%);
+  top: 5%;
+  right: 5%;
+  pointer-events: none;
+}
+
+#profile::after {
+  content: "";
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 201, 167, 0.12) 0%, transparent 70%);
+  bottom: 5%;
+  left: 5%;
+  pointer-events: none;
+}
+
+.section__pic-container {
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  position: relative;
+  /* flex-shrink handled by .profile-pic-outer */
+}
+
+/* Animated gradient ring around profile pic */
+.section__pic-container::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--coral), var(--violet), var(--teal));
+  z-index: 0;
+  animation: spinRing 6s linear infinite;
+}
+
+.section__pic-container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: white;
+  z-index: 1;
+}
+
+@keyframes spinRing {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.section__pic-container img {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.section__text {
+  text-align: left;
+  max-width: 520px;
+}
+
+.section__text__p1 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--violet);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.title {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 3.8rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  background: linear-gradient(135deg, var(--dark) 30%, var(--violet) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: left;
+  margin-bottom: 0.5rem;
+}
+
+.section__text__p2 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--muted);
+  margin-bottom: 1.8rem;
+}
+
+/* Tagline typed span */
+.typed-role {
+  color: var(--coral);
+  font-weight: 700;
+}
+
+/* Btn container */
+.btn-container {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.8rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 0.85rem 2rem;
+  border-radius: 3rem;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+}
+
+.btn-color-1 {
+  background: linear-gradient(135deg, var(--coral), var(--violet));
+  color: white;
+  box-shadow: 0 6px 24px rgba(255, 107, 107, 0.35);
+}
+
+.btn-color-1:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(255, 107, 107, 0.45);
+}
+
+.btn-color-2 {
+  background: transparent;
+  border: 2px solid var(--violet);
+  color: var(--violet);
+}
+
+.btn-color-2:hover {
+  background: var(--violet);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(132, 94, 194, 0.3);
+}
+
+/* Socials */
+#socials-container {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.social-link {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+  cursor: pointer;
+  background: white;
+}
+
+.social-link:hover {
+  transform: translateY(-4px);
+  border-color: var(--violet);
+  box-shadow: 0 6px 18px rgba(132, 94, 194, 0.2);
+}
+
+.icon {
+  cursor: pointer;
+  height: 1.5rem;
+}
+
+/* Arrow */
+.arrow {
+  position: absolute;
+  right: -4rem;
+  bottom: 2.5rem;
+  filter: invert(45%) sepia(60%) saturate(400%) hue-rotate(220deg);
+  animation: bounce 1.8s ease-in-out infinite;
+}
+
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+/* =============================================
+   ABOUT SECTION
+============================================= */
+#about {
+  background: var(--bg);
+  position: relative;
+}
+
+.about-section-wrapper {
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-pic-wrap {
+  flex-shrink: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-pic {
+  width: 320px;
+  height: 380px;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 1.5rem;
+  position: relative;
+  z-index: 1;
+  display: block;
+}
+
+/* Decorative offset square */
+.about-pic-wrap::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 1.5rem;
+  background: linear-gradient(135deg, var(--violet), var(--teal));
+  top: 14px;
+  left: 14px;
+  z-index: 0;
+  opacity: 0.25;
+}
+
+.about-details-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex: 1;
+}
+
+.about-containers {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.details-container {
+  flex: 1;
+  padding: 1.8rem;
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.details-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--coral), var(--violet));
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.details-container:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(132, 94, 194, 0.15);
+}
+
+.details-container h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 0.5rem;
+}
+
+.details-container p {
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+.details-container .icon {
+  margin-bottom: 0.75rem;
+  filter: invert(32%) sepia(80%) saturate(600%) hue-rotate(230deg);
+  height: 2rem;
+}
+
+.text-container {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 1.8rem;
+  font-size: 1rem;
+  line-height: 1.9;
+  color: var(--muted);
+  position: relative;
+}
+
+.text-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--teal), var(--violet));
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+/* Section label */
+.section__text__p1 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--violet);
+  margin-bottom: 0.3rem;
+  display: block;
+}
+
+/* =============================================
+   SKILLS SECTION
+============================================= */
+#experience {
+  background: var(--surface);
+  position: relative;
+}
+
+#experience .title {
+  text-align: center;
+}
+
+#experience .section__text__p1 {
+  text-align: center;
+}
+
+.experience-details-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.skills-grid-wrapper {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.skill-category-card {
+  background: white;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 2rem 2rem 1.5rem;
+  flex: 1;
+  min-width: 280px;
+  max-width: 400px;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.skill-category-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(132, 94, 194, 0.18);
+}
+
+.skill-category-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+}
+
+.skill-category-card:nth-child(1)::before {
+  background: linear-gradient(90deg, var(--coral), var(--gold));
+}
+
+.skill-category-card:nth-child(2)::before {
+  background: linear-gradient(90deg, var(--violet), var(--teal));
+}
+
+.experience-sub-title {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.experience-sub-title::before {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--coral);
+  flex-shrink: 0;
+}
+
+.skill-category-card:nth-child(2) .experience-sub-title::before {
+  background: var(--violet);
+}
+
+.article-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+article {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: calc(50% - 0.5rem);
+  background: var(--surface);
+  padding: 0.65rem 0.9rem;
+  border-radius: 0.6rem;
+  border: 1px solid var(--border);
+  transition: background 0.25s, border-color 0.25s;
+}
+
+article:hover {
+  background: #EDE9F8;
+  border-color: var(--violet);
+}
+
+article .icon {
+  height: 1.1rem;
+  filter: invert(32%) sepia(80%) saturate(600%) hue-rotate(230deg);
+  flex-shrink: 0;
+}
+
+article div h3 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+article div p {
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+/* =============================================
+   PROJECTS SECTION
+============================================= */
+#projects {
+  background: var(--bg);
+  position: relative;
+}
+
+#projects .title {
+  text-align: center;
+}
+
+#projects .section__text__p1 {
+  text-align: center;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+/* Emo AI Agent banner (gradient placeholder when no image) */
+.emo-ai-banner {
+  background: linear-gradient(135deg, #1A1A2E 0%, #16213E 40%, #0F3460 70%, #845EC2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.emo-ai-art {
+  display: flex;
+  gap: 1.5rem;
+  z-index: 1;
+  position: relative;
+}
+
+.emo-icon {
+  font-size: 3rem;
+  filter: drop-shadow(0 0 12px rgba(255, 107, 107, 0.7));
+  animation: floatIcon 3s ease-in-out infinite;
+}
+
+.emo-icon:nth-child(2) {
+  animation-delay: 0.5s;
+  filter: drop-shadow(0 0 12px rgba(0, 201, 167, 0.7));
+}
+
+.emo-icon:nth-child(3) {
+  animation-delay: 1s;
+  filter: drop-shadow(0 0 12px rgba(132, 94, 194, 0.9));
+}
+
+@keyframes floatIcon {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.project-card {
+  background: white;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 24px 60px rgba(132, 94, 194, 0.2);
+}
+
+.project-img-wrap {
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+}
+
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-img {
+  transform: scale(1.08);
+}
+
+.project-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(26, 26, 46, 0.5) 100%);
+}
+
+.project-card-body {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-title {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 0.5rem;
+}
+
+.project-desc {
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin-bottom: 1.2rem;
+  flex: 1;
+}
+
+.project-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: 2rem;
+  margin-right: 0.4rem;
+  margin-bottom: 0.8rem;
+  color: white;
+}
+
+.tag-coral {
+  background: var(--coral);
+}
+
+.tag-violet {
+  background: var(--violet);
+}
+
+.tag-teal {
+  background: var(--teal);
+}
+
+.tag-gold {
+  background: #e0a500;
+}
+
+.project-btn {
+  align-self: flex-start;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.55rem 1.4rem;
+  border-radius: 2rem;
+  border: 2px solid var(--violet);
+  background: transparent;
+  color: var(--violet);
+  cursor: pointer;
+  transition: all 0.25s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.project-btn:hover {
+  background: var(--violet);
+  color: white;
+  box-shadow: 0 6px 18px rgba(132, 94, 194, 0.3);
+}
+
+/* =============================================
+   CONTACT SECTION
+============================================= */
+#contact {
+  background: linear-gradient(160deg, var(--surface) 0%, #EDE9F8 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  text-align: center;
+}
+
+#contact .title {
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+#contact .section__text__p1 {
+  text-align: center;
+  margin-bottom: 0.25rem;
+}
+
+.contact-subtitle {
+  color: var(--muted);
+  font-size: 1.05rem;
+  margin-bottom: 2.5rem;
+  max-width: 500px;
+}
+
+.contact-info-upper-container {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.contact-info-container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: white;
+  padding: 1rem 2rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.contact-info-container:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(132, 94, 194, 0.18);
+}
+
+.contact-info-container p a {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--dark);
+  transition: color 0.25s;
+}
+
+.contact-info-container p a:hover {
+  color: var(--violet);
+}
+
+.contact-icon {
+  height: 2rem;
+  cursor: default;
+}
+
+.email-icon {
+  height: 2rem;
+}
+
+/* =============================================
+   FOOTER
+============================================= */
+footer {
+  background: var(--dark);
+  color: rgba(255, 255, 255, 0.6);
+  padding: 2.5rem 2rem;
+  text-align: center;
+}
+
+footer .nav-links-container {
+  margin-bottom: 1.2rem;
+}
+
+footer .nav-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+footer .nav-links a {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: color 0.25s;
+}
+
+footer .nav-links a:hover {
+  color: white;
+}
+
+footer p {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.82rem;
+}
+
+/* =============================================
+   SECTION TITLE CENTERED HELPER
+============================================= */
+.section-heading {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+/* Section label / title utility classes */
+.section-label-center {
+  display: block;
+  text-align: center;
+}
+
+.section-title-center,
+.title-about {
+  text-align: center;
+}
+
+.title-about {
+  margin-bottom: 2.5rem;
+}
+
+/* Inline text colour helpers */
+.highlight-violet {
+  color: var(--violet);
+}
+
+.highlight-dark {
+  color: var(--dark);
+}
+
+/* =============================================
+   SECTION CONTAINER (About layout helper)
+============================================= */
+.section-container {
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+}
