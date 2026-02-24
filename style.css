@@ -318,8 +318,8 @@ section {
 }
 
 .section__pic-container {
-  width: 340px;
-  height: 340px;
+  width: 420px;
+  height: 420px;
   border-radius: 50%;
   position: relative;
   /* flex-shrink handled by .profile-pic-outer */
@@ -358,6 +358,7 @@ section {
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
+  object-position: 50% 8%;
 }
 
 .section__text {
